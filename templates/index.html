@@ -10,6 +10,23 @@
             text-align: center;
             margin-top: 50px;
         }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* Glowing effect */
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+        }
         input[type="number"] {
             padding: 5px;
             width: 50px;
@@ -21,7 +38,15 @@
     </style>
 </head>
 <body>
-    <h1>Guess the Number Game</h1>
+    <h1>Welcome, {{ first_name }}! How are you?</h1>
+
+    {% if profile_pic_url %}
+        <img src="{{ profile_pic_url }}" alt="Profile Picture" class="profile-pic">
+    {% else %}
+        <p>No profile picture available.</p>
+    {% endif %}
+
+    <h2>Guess the Number Game</h2>
     <p>Enter a number between 1 and 10:</p>
     <input type="number" id="guessInput" min="1" max="10">
     <button onclick="submitGuess()">Submit</button>
