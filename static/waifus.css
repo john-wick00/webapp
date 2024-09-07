@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa; /* Light blue background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/* Waifus Page Main Content Styling */
+.container {
+    text-align: center;
+    margin-top: 50px;
+    color: #004d40;
+}
+
+/* Bottom navigation bar with oval container */
+.bottom-nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 20px;
+}
+
+/* Oval background around buttons */
+.bottom-nav {
+    background: linear-gradient(145deg, #00796b, #004d40); /* Subtle green gradient */
+    border-radius: 40px;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%; /* Width of the oval background */
+    max-width: 500px;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles for navigation */
+.nav-button {
+    background-color: #ffffff;
+    border: none;
+    font-size: 14px;
+    color: #00796b;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 30px;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for navigation buttons */
+.nav-button:hover {
+    background-color: #e0f2f1;
+    transform: scale(1.05);
+}

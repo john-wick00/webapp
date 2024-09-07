@@ -3,24 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Disable zooming -->
-    <title>User Profile</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='start.css') }}"> <!-- Link to external CSS -->
+    <title>View Waifus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='waifus.css') }}"> <!-- Link to external CSS -->
 </head>
 <body>
 
-    <!-- Main Content -->
+    <!-- Waifus Page Content -->
     <div class="container">
-        {% if profile_pic_url %}
-            <img src="{{ profile_pic_url }}" alt="Profile Picture" class="profile-pic">
-        {% else %}
-            <p>No profile picture available.</p>
-        {% endif %}
-
-        <div class="user-info">
-            <p>User ID: {{ user_id }}</p>
-            <p>Name: {{ first_name }}</p>
-            <p>Username: {{ username }}</p>
-        </div>
+        <p>Welcome to the Waifus Page!</p>
     </div>
 
     <!-- Bottom Navigation Bar within an oval container -->
