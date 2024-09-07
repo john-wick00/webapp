@@ -1,44 +1,77 @@
+/* General styles */
 body {
     margin: 0;
     padding: 0;
-    background-color: #e0f7fa; /* Light blue background */
+    background-color: #e0f7fa;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 100vh;
+    overflow: hidden; /* Avoid body scrolling */
 }
 
-/* Waifus Page Main Content Styling */
+/* Waifus Page Content Styling */
 .container {
     text-align: center;
     margin-top: 50px;
     color: #004d40;
+    overflow-y: auto; /* Enable scrolling */
+    padding-bottom: 100px;
 }
 
-/* Bottom navigation bar with oval container */
+/* Waifus container to hold all waifu images */
+#waifus-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 waifus per row */
+    gap: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Styling for each waifu */
+.waifu {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.waifu img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.waifu p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #004d40;
+}
+
+/* Bottom navigation */
 .bottom-nav-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    position: relative;
+    position: fixed;
     bottom: 20px;
 }
 
-/* Oval background around buttons */
 .bottom-nav {
-    background: linear-gradient(145deg, #00796b, #004d40); /* Subtle green gradient */
+    background: linear-gradient(145deg, #00796b, #004d40);
     border-radius: 40px;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
-    width: 90%; /* Width of the oval background */
+    width: 90%;
     max-width: 500px;
     box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Button styles for navigation */
 .nav-button {
     background-color: #ffffff;
     border: none;
@@ -53,8 +86,9 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Hover effect for navigation buttons */
 .nav-button:hover {
     background-color: #e0f2f1;
     transform: scale(1.05);
 }
+
+
