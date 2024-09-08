@@ -9,7 +9,18 @@ body {
     align-items: center;
     justify-content: flex-start;
     height: 100vh;
-    overflow: hidden; /* Avoid body scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto;   /* Allow vertical scrolling */
+}
+
+/* Wrapper for zoomed content */
+.zoom-wrapper {
+    transform: scale(0.95); /* Zoom out the content */
+    transform-origin: top center; /* Ensure zoom happens from the top */
+    width: 100%;
+    overflow-x: hidden; 
+    overflow-y: auto; /* Allow vertical scrolling within zoomed content */
+    box-sizing: border-box; /* Include padding and borders in width/height calculations */
 }
 
 /* Waifus Page Content Styling */
@@ -17,8 +28,8 @@ body {
     text-align: center;
     margin-top: 50px;
     color: #004d40;
-    overflow-y: auto; /* Enable scrolling */
     padding-bottom: 100px;
+    width: 100%; /* Ensure container does not overflow horizontally */
 }
 
 /* Waifus container to hold all waifu images */
@@ -29,6 +40,7 @@ body {
     padding: 20px;
     width: 100%;
     max-width: 600px;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 /* Styling for each waifu */
@@ -59,6 +71,7 @@ body {
     justify-content: center;
     position: fixed;
     bottom: 20px;
+    z-index: 10; /* Keep buttons above other content */
 }
 
 .bottom-nav {
@@ -90,5 +103,3 @@ body {
     background-color: #e0f2f1;
     transform: scale(1.05);
 }
-
-

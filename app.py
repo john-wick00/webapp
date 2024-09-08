@@ -6,27 +6,33 @@ logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 
 # Connect to MongoDB
-client = MongoClient('mongodb+srv://tmaid6012:loniko0908@cluster0.e3nhbm0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+client = MongoClient('mongodb://localhost:27017')
 db = client['WAIFU-BOT']
 
 WAIFUS_PER_PAGE = 10
 
 
 @app.route('/')
-def index():
+def home():
     first_name = request.args.get('first_name')
     profile_pic_url = request.args.get('profile_pic_url')
     user_id = request.args.get('user_id')
     username = request.args.get('username')
 
+    logging.info(f"Rendering home page with user_id: {user_id}, first_name: {first_name}, username: {username}, profile_pic_url: {profile_pic_url}")
+    
     return render_template('index.html', first_name=first_name, profile_pic_url=profile_pic_url, user_id=user_id, username=username)
 
 @app.route('/waifus')
 def waifus():
+    first_name = request.args.get('first_name')
+    profile_pic_url = request.args.get('profile_pic_url')
     user_id = request.args.get('user_id')
+    username = request.args.get('username')
 
-    # Initial load without pagination
-    return render_template('waifus.html', user_id=user_id)
+    # Pass these parameters to the template as well
+    return render_template('waifus.html', first_name=first_name, profile_pic_url=profile_pic_url, user_id=user_id, username=username)
+
 
 @app.route('/load_waifus')
 def load_waifus():
@@ -45,18 +51,13 @@ def load_waifus():
         for waifu in user_data.get("images", []):
             waifu_data = db.Characters.find_one({"id": waifu["image_id"]})
             if waifu_data:
-                waifus.append({
-                    "img_url": waifu_data.get("img_url"),
-                    "name": waifu_data.get("name"),
-                    "anime": waifu_data.get("anime"),
-                    "rarity": waifu_data.get("rarity"),
-                    "rarity_sign": waifu_data.get("rarity_sign")
-                })
+                waifus.append({"img_url": waifu_data.get("img_url")})
         logging.info(f"Waifus fetched: {waifus}")
         return jsonify({"waifus": waifus})
     except ValueError:
         logging.error("Invalid user_id")
         return jsonify({"error": "Invalid user_id"}), 400
+
 
 
 

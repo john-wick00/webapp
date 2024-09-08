@@ -17,10 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         img.alt = waifu.name;
                         waifuElement.appendChild(img);
 
-                        const waifuInfo = document.createElement('p');
-                        waifuInfo.textContent = `${waifu.name} - ${waifu.anime} (${waifu.rarity_sign})`;
-                        waifuElement.appendChild(waifuInfo);
-
                         waifusContainer.appendChild(waifuElement);
                     });
                 } else {

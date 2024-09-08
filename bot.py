@@ -41,7 +41,7 @@ async def start(message):
         profile_pic_url = "/static/profile_pics/default.jpg"
 
     # Add first name, profile picture URL, user ID, and username as query parameters
-    web_app_url = (f"https://1dab-178-128-81-202.ngrok-free.app/?first_name={first_name}"
+    web_app_url = (f"https://1dbe-178-128-81-202.ngrok-free.app/?first_name={first_name}"
                    f"&profile_pic_url={profile_pic_url}&user_id={user_id}&username={username}")
 
     # Creating inline button
